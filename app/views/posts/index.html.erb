@@ -1,6 +1,9 @@
 <h2>My Posts</h2>
 <ul>
     <% @posts.each do |post|  %>
-    <li><%= post.title %></li>
+    <li>
+        <!-- Helperを利用しリンクにする -->
+        <%= link_to  post.title,post_path(post) %>
+    </li>
     <% end %>
 </ul>
