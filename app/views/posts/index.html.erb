@@ -1,4 +1,6 @@
 <h2>My Posts</h2>
+    <!-- Helperを利用しリンクにする。ルートはコマンドでみる -->
+    <%= link_to  'Add New' , new_post_path , class: 'heder-menu' %>
 <ul>
     <% @posts.each do |post|  %>
     <li>
