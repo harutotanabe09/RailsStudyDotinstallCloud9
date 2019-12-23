@@ -17,9 +17,14 @@ class PostsController < ApplicationController
 
         # Privateメソッドで入力チェックする
         @post = Post.new(post_params)
-        @post.save
-        # redirect
-        redirect_to posts_path
+            if @post.save
+        
+                # redirect
+                redirect_to posts_path
+            else
+                # DDでエラーを見る
+                render plain: @post.errors.inspect 
+            end
     end
 
   private
