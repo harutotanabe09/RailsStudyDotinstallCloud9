@@ -12,6 +12,10 @@ class PostsController < ApplicationController
         @post = Post.new
     end
 
+    def edit
+         @post = Post.find(params[:id])
+    end
+
     def create
         # LaravelのDDみたいなやつ
         # render plain: params[:post].inspect
