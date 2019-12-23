@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     end
 
     def new
+        @post = Post.new
     end
 
     def create
@@ -23,7 +24,8 @@ class PostsController < ApplicationController
                 redirect_to posts_path
             else
                 # DDでエラーを見る
-                render plain: @post.errors.inspect 
+                # render plain: @post.errors.inspect 
+                render 'new'
             end
     end
 
