@@ -12,7 +12,19 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.find(params[:id])
+        # LaravelのDDみたいなやつ
+        # render plain: params[:post].inspect
+
+        # Privateメソッドで入力チェックする
+        @post = Post.new(post_params)
+        @post.save
+        # redirect
+        redirect_to posts_path
+    end
+
+  private
+    def post_params
+      params.require(:post).permit(:title, :body)
     end
 
 end
